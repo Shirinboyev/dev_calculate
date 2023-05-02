@@ -1,41 +1,5 @@
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const MaterialApp(
-//     home: Calculate(),
-//   ));
-// }
-
-// class Calculate extends StatefulWidget {
-//   const Calculate({super.key});
-
-//   @override
-//   State<Calculate> createState() => _CalculateState();
-// }
-
-// class _CalculateState extends State<Calculate> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: (Scaffold(
-//         body: Container(
-//           child: Column(
-//             children: [
-//               TextField(
-//                 decoration: InputDecoration(),
-//               )
-//             ],
-//           ),
-//         ),
-//       )),
-//     );
-//   }
-// }
-
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-
+import 'function.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -49,59 +13,8 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 class _MyAppState extends State<MyApp> {
-  TextEditingController controller = TextEditingController();
 
-Widget exp(
-    String b, [
-    Color colo = Colors.amber,
-  ]) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: colo,
-            fixedSize: Size(70, 70),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(70)),
-            textStyle: TextStyle(color: Colors.black)),
-        onPressed: () {
-          if (controller.text[controller.text.length - 1] == 'x') {
-            controller.text =
-                controller.text.substring(0, controller.text.length - 1);
-          } else if (controller.text[controller.text.length - 1] == '/') {
-            controller.text =
-                controller.text.substring(0, controller.text.length - 1);
-          } else if (controller.text[controller.text.length - 1] == '+') {
-            controller.text =
-                controller.text.substring(0, controller.text.length - 1);
-          } else if (controller.text[controller.text.length - 1] == '-') {
-            controller.text =
-                controller.text.substring(0, controller.text.length - 1);
-          } else if (controller.text[controller.text.length - 1] == '%') {
-            controller.text =
-                controller.text.substring(0, controller.text.length - 1);
-          }
-          controller.text += b;
-        },
-        child: Text(
-          b,
-          style: TextStyle(fontSize: 30),
-        ));
-  }
 
-  Widget wid(String a, [Color col = Colors.black]) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: col,
-            fixedSize: Size(70, 70),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(70))),
-        onPressed: () {
-          controller.text += a;
-        },
-        child: Text(
-          a,
-          style: TextStyle(fontSize: 25),
-        ));
-  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
